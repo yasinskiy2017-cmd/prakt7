@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieCatalogApp.Views.DetailsPage"
+             Title="Деталі фільму"
+             BackgroundColor="{StaticResource PageBackgroundColor}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Image Source="{Binding Poster}"
+                   HeightRequest="330"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding Title}"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource PrimaryTextColor}"
+                   HorizontalTextAlignment="Center" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Border Grid.Column="0" Padding="12" BackgroundColor="{StaticResource CardBackgroundColor}"
+                        Stroke="#303847" StrokeShape="RoundRectangle 12">
+                    <Label Text="{Binding Year}" TextColor="{StaticResource SecondaryTextColor}"
+                           HorizontalTextAlignment="Center" />
+                </Border>
+                <Border Grid.Column="1" Padding="12" BackgroundColor="{StaticResource CardBackgroundColor}"
+                        Stroke="#303847" StrokeShape="RoundRectangle 12">
+                    <Label Text="{Binding Rating}" TextColor="{StaticResource AccentColor}"
+                           FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                </Border>
+            </Grid>
+            <Label Text="ОПИС ФІЛЬМУ" FontSize="13" CharacterSpacing="1.5"
+                   FontAttributes="Bold" TextColor="{StaticResource AccentColor}" />
+            <Label Text="{Binding Description}" FontSize="16" LineHeight="1.35"
+                   TextColor="{StaticResource PrimaryTextColor}" />
+            <Label Text="{Binding Id, StringFormat='IMDb ID: {0}'}"
+                   FontSize="12" TextColor="{StaticResource SecondaryTextColor}" />
+            <Button Text="ПОВЕРНУТИСЯ ДО КАТАЛОГУ"
+                    Clicked="OnBackClicked"
+                    BackgroundColor="{StaticResource AccentColor}"
+                    TextColor="#10131A" FontAttributes="Bold"
+                    CornerRadius="12" HeightRequest="52" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
